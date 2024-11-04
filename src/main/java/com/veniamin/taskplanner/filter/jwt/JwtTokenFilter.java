@@ -26,13 +26,10 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     private final UserService userService;
 
-    private final PasswordEncoder passwordEncoder;
-
     private final JwtUtils jwtUtils;
 
     @Override
-    @Transactional
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String token = request.getHeader("Authorization");
         if (!request.getRequestURI().startsWith("/public") && token == null) {
             throw new AuthorizeException(AuthorizedError.NOT_CORRECT_TOKEN);

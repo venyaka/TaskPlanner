@@ -31,9 +31,6 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UserServiceImpl implements UserService {
 
-
-    //TODO:: change password logic set when admin create user
-
     private final UserRepo userRepo;
 
     private final PasswordEncoder passwordEncoder;

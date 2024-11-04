@@ -21,13 +21,11 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class RefreshTokenFilter extends OncePerRequestFilter {
 
-
     private final JwtUtils jwtUtils;
 
     private final UserRepo userRepo;
 
     @Override
-    @Transactional
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if (request.getHeader("Refresh") != null) {
             String refreshToken = request.getHeader("Refresh");

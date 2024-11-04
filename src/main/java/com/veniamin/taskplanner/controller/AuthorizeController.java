@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(PathConstants.AUTHORIZE_CONTROLLER_PATH)
+@RequestMapping("/authorize")
 public class AuthorizeController {
 
     private final AuthorizeService authorizeService;
